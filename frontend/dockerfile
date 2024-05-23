@@ -1,0 +1,17 @@
+# Usa la última imagen de Node.js como base
+FROM node:latest
+
+# Establece el directorio de trabajo dentro del contenedor
+WORKDIR /app
+
+# Copia el contenido del directorio mary-store al directorio de trabajo del contenedor
+COPY mary-store /app
+
+# Instala las dependencias del proyecto
+RUN npm install
+
+# Expone el puerto en el que se ejecutará la aplicación Next.js
+EXPOSE 3000
+
+# Ejecuta el comando para iniciar tu aplicación Next.js
+CMD ["npm", "run", "dev"]
